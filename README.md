@@ -1,4 +1,4 @@
-# python-bulk-image-optimizer.py
+# bulk-image-optimizer.py
 This is a simple script that allow you to optimize/compress all your images at once.
 
 Working on a Wordpress project, I needed to optimize all images inside the upload folder (over 500 images and placed on several folders) and I didn't want to pay for any plugins/services, so I decided to do it myself. 
