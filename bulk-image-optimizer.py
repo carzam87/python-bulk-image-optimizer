@@ -23,7 +23,14 @@ def compress(location):
                     global TOTAL_GAIN
                     global TOTAL_ORIGINAL
                     global TOTAL_COMPRESSED
-                    opt = Image.open(input_path)
+                    opt = None
+                    try:
+                        opt = Image.open(input_path)
+                    except:
+                        #do nothing just print the file skipping
+                        print(f'skipping file cannot open: {input_path}')
+                        continue
+                        
                     original_size = os.stat(input_path).st_size / 1024 / 1024
                     TOTAL_ORIGINAL += original_size
                     print(input_path)
@@ -45,6 +52,7 @@ def compress(location):
                     TOTAL_GAIN += gain
                     print("Compressed size: " + f'{compressed_size:,.2f}' + " megabytes")
                     print("Gain : " + f'{gain:,.2f}' + " megabytes")
+                    opt.close()
             else:
                 if os.path.isfile(input_path):
                     print('File not image, copying instead: ' + input_path)
@@ -53,6 +61,7 @@ def compress(location):
 
 if __name__ == '__main__':
     start_path = os.path.dirname(os.path.abspath(__file__)) + os.sep + r"input"
+    
     # ask if .pgn images should automatically converted to .jpg
     CONVERT_PNG_TO_JPG = input('Would you like to convert .png images to .jpg? (y/n): ') == 'y'
     TOTAL_GAIN = 0
