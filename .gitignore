@@ -131,3 +131,8 @@ dmypy.json
 #remove input and output Folders
 input/
 output/
+
+.DS_Store
+.vscode/*
+.gitkeep
+.vscode
