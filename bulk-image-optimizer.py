@@ -42,7 +42,7 @@ def compress(location):
                     original_size = os.stat(input_path).st_size / 1024 / 1024
                     TOTAL_ORIGINAL += original_size
                     print(input_path)
-                    print("Original size: " + f'{original_size:,.2f}' + " megabytes")
+                    print("Original size: " + f'{original_size:,.2f}' + ' Megabytes')
                     if not os.path.exists(out_path):
                         try:
                             os.makedirs(out_path, exist_ok=True)
@@ -96,7 +96,7 @@ def compress(location):
                             if e.errno != errno.EEXIST:
                                 raise        
                     input_file = input_path
-                    output_file= input_file.replace('input','outout')        
+                    output_file= input_file.replace('input','output')        
                     print('File not image, copying instead: ' + input_path)
                     subprocess.call('cp ' + input_file + ' ' + output_file, shell=True)
 
